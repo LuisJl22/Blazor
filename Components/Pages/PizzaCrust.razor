@@ -1,0 +1,47 @@
+﻿@page "/pizaCrust"
+@using BlazorApp
+@rendermode InteractiveServer
+
+<h2> Pizza Delivery</h2>
+<h4>Delivery Fee is $2</h4>
+<h2>Pizza Crust</h2>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.CrustPizza.ThinCrust' />
+    Thin Crust
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.CrustPizza.PanCrust' />
+    Pan Crust
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.CrustPizza.HandTossed' />
+    Hand Tossed
+</label>
+
+
+<p>Pizza Crust Selector</p>
+<ul>
+    @if (PizzaInstance.CrustPizza.ThinCrust)
+    {
+        <li>Thin</li>
+    }
+    @if (PizzaInstance.CrustPizza.PanCrust)
+    {
+        <li>Pan Crust</li>
+    }
+    @if (PizzaInstance.CrustPizza.HandTossed)
+    {
+        <li>Hand Tossed</li>
+    }
+</ul>
+
+
+<p> Total Price: $@PizzaInstance.GetCrustPrice()</p>
+@code {
+
+    [Parameter]
+    public Pizza PizzaInstance { get; set; }
+}
