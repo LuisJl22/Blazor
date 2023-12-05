@@ -1,0 +1,123 @@
+﻿@page "/pizzadel"
+@using BlazorApp
+@rendermode InteractiveServer
+
+<h3>Pizza Topping</h3>
+
+
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.Bacon' />
+    Bacon
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.MoreBacon' />
+    More Bacon
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.ExtraBacon' />
+    Extra Bacon
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.Pepperoni' />
+    Pepperoni
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.ExtraCheese' />
+    Extra Cheese
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.Ham' />
+    Ham 
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTopping.Chicken' />
+    Chicken
+</label>
+
+
+<p>Topping Selection Checker</p>
+<ul>
+    @if (PizzaInstance.PizzaTopping.Bacon)
+    {
+        <li>Bacon</li>
+    }
+    @if (PizzaInstance.PizzaTopping.MoreBacon)
+    {
+        <li>Moreee Bacon </li>
+
+    }
+    @if (PizzaInstance.PizzaTopping.ExtraBacon)
+    {
+        <li>Extra Extra Bacon</li>
+    }
+    @if (PizzaInstance.PizzaTopping.Pepperoni)
+    {
+        <li>Pepperoni</li>
+    }
+    @if (PizzaInstance.PizzaTopping.ExtraCheese)
+    {
+        <li>Extra Cheese</li>
+    }
+    @if (PizzaInstance.PizzaTopping.Ham)
+    {
+        <li>Ham</li>
+    }
+    @if (PizzaInstance.PizzaTopping.Chicken)
+    {
+        <li>Chicken</li>
+    }
+
+</ul>
+
+<p> Total Price: $@PizzaInstance.GetCrustPrice()</p>
+
+
+
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTip.Twelve' />
+   Tip: 12% 
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTip.Fifteen' />
+    Tip: 15% 
+</label>
+
+<label>
+    <input type="checkbox" @bind='PizzaInstance.PizzaTip.Eighteen' />
+    Tip: 18%
+</label>
+
+
+<p>Tip Selector</p>
+<ul>
+    @if (PizzaInstance.PizzaTip.Twelve)
+    {
+        <li>12%</li>
+    }
+    @if (PizzaInstance.PizzaTip.Fifteen)
+    {
+        <li>15%</li>
+    }
+    @if (PizzaInstance.PizzaTip.Eighteen)
+    {
+        <li>18%</li>
+    }
+</ul>
+
+<p> $2 off your Delivery Fee</p>
+<p> Total Price: $@PizzaInstance.GetFinalPrice()</p>
+
+@code {
+    [Parameter]
+    public Pizza PizzaInstance { get; set; }
+
+}

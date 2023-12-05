@@ -1,0 +1,11 @@
+﻿@page "/pizzaBoth"
+@using BlazorApp
+@rendermode InteractiveServer
+
+<PizzaCrust PizzaInstance="@pizza"/>
+<PizzaDelivery PizzaInstance="@pizza"/>
+
+
+@code {
+   Pizza pizza = new Pizza();
+}
